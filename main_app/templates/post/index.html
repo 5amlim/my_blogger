@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+<h3>Posts</h3>
+{% for post in posts %}
+<div class="card">
+  <div class="card-action">
+    {%if user.is_authenticated%}
+    <p>{{post.user.profile.username}}</p>
+    {%else%}
+    <p class="teal-text"><strong>{{post.user.profile.username}}</strong></p>
+    {%endif%}
+  </div>
+  <div class="card-content">
+    <div style="text-align: center">
+      <img class="responsive-img card-panel" src="{{post.url}}" />
+    </div>
+    <span class="card-title">{{ post.caption }}</span>
+  </div>
+</div>
+{%endfor%}{% endblock %}

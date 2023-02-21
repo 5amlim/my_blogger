@@ -12,3 +12,10 @@ body {
     padding-top: 0;
     text-align: right;
   }
+  
+  .logo {
+    object-fit: cover;
+    max-width: 6%;
+    min-width: 6%;
+    vertical-align: middle;
+  }

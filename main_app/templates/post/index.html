@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 <h3>Posts</h3>
 {% for post in posts %}
-<div class="card">
+<div class="card blue-grey lighten-3">
   <div class="card-action">
     {%if user.is_authenticated%}
     <p>{{post.user.profile.username}}</p>
@@ -10,10 +10,23 @@
     {%endif%}
   </div>
   <div class="card-content">
+    {% if post.url %}
     <div style="text-align: center">
-      <img class="responsive-img card-panel" src="{{post.url}}" />
+      <img class="responsive-img" src="{{post.url}}" />
     </div>
+    {% endif %}
     <span class="card-title">{{ post.caption }}</span>
   </div>
+  {% if user.is_authenticated %}
+  <div class="card-action blue darken-3">
+    {% if user not in post.likes.all %}
+    <a href="">Like</a>
+    {%else%}
+    <a href="">Unlike</a>
+    {%endif%}
+    <a href="">Comment</a>
+    <a href="">Details</a>
+  </div>
+  {%endif%}
 </div>
 {%endfor%}{% endblock %}

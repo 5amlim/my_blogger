@@ -18,14 +18,14 @@
     <span class="card-title">{{ post.caption }}</span>
   </div>
   {% if user.is_authenticated %}
-  <div class="card-action blue darken-3">
+  <div class="card-action">
     {% if user not in post.likes.all %}
-    <a href="">Like</a>
+    <a href=""><i class="material-icons black-text">favorite</i></a>
     {%else%}
-    <a href="">Unlike</a>
+    <a href=""><i class="material-icons red-text">favorite</i></a>
     {%endif%}
-    <a href="">Comment</a>
-    <a href="">Details</a>
+    <a href=""><i class="material-icons black-text">mode_comment</i></a>
+    <a href=""><i class="material-icons black-text">info_outline</i></a>
   </div>
   {%endif%}
 </div>

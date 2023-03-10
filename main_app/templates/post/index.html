@@ -1,12 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<h3>Posts</h3>
+<h3 class="white-text">Posts</h3>
 {% for post in posts %}
 <div class="card blue-grey lighten-3">
   <div class="card-action">
     {%if user.is_authenticated%}
-    <p>{{post.user.profile.username}}</p>
-    {%else%}
     <p class="teal-text"><strong>{{post.user.profile.username}}</strong></p>
+    {%else%}
+    <p class="indigo-text">{{post.user.profile.username}}</p>
     {%endif%}
   </div>
   <div class="card-content">
@@ -25,7 +25,7 @@
     <a href=""><i class="material-icons red-text">favorite</i></a>
     {%endif%}
     <a href=""><i class="material-icons black-text">mode_comment</i></a>
-    <a href=""><i class="material-icons black-text">info_outline</i></a>
+    <a href=""><i class="material-icons black-text">loop</i></a>
   </div>
   {%endif%}
 </div>
